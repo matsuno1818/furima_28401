@@ -25,24 +25,27 @@
 | image       | string     | null: false                    |
 | name        | string     | null: false                    |
 | text        | text       | null: false                    |
-| genre_id    | integer    | null: false                    |
-| state_id    | integer    | null: false                    |
-| delivery_id | integer    | null: false                    |
+| genre       | integer    | null: false                    |
+| state       | integer    | null: false                    |
+| delivery    | integer    | null: false                    |
+| prefecture  | integer    | null: false                    |
 | date        | integer    | null: false                    |
 | price       | integer    | null: false                    |
 | user        | references | null: false, foreign_key: true |
+
 
 ### Association
 
 - belongs_to :user
 - has_one :purchase
+- has_one :address
 
 ## addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture_id | integer    | null: false
+| prefecture    | integer    | null: false                    |
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
@@ -51,7 +54,7 @@
 
 ### Association
 
-- has_one :purchase
+- belongs_to :item
 
 ## purchases テーブル
 
@@ -63,5 +66,5 @@
 ## Association
 
 - belongs_to :user
-- belongs_to :address
+- has_one :address
 - belongs_to :item
