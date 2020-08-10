@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :purchas
+- has_many :purchases
 - has_many :item
 
 ## items テーブル
@@ -26,11 +26,14 @@
 | name    | string     | null: false                    |
 | text    | text       | null: false                    |
 | price   | integer    | null: false                    |
+| charge  | integer    |                                |
+| returns | integer    |                                |
 | user    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- has_one :purchase
 
 ## addresses テーブル
 
@@ -41,9 +44,11 @@
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
 | user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :purchase
+
+- has_one :purchase
 
 ## purchases テーブル
 
@@ -51,9 +56,9 @@
 | ------- | ---------- | ------------------------------ |
 | item    | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
 
 ## Association
 
 - belongs_to :user
 - belongs_to :address
+- belongs_to :item
