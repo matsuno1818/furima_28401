@@ -25,12 +25,9 @@
 | image    | string     | null: false                    |
 | name     | string     | null: false                    |
 | text     | text       | null: false                    |
-| category | string     | null: false                    |
-| state    | string     | null: false                    |
-| delivery | string     | null: false                    |
 | date     | integer    | null: false                    |
 | price    | integer    | null: false                    |
-| exhibitor| references | null: false, foreign_key: true |
+| user     | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -46,7 +43,6 @@
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
-| purchaser     | references | null: false, foreign_key: true |
 | item          | references | null: false, foreign_key: true |
 
 ### Association
@@ -58,7 +54,7 @@
 | Colum     | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | item      | references | null: false, foreign_key: true |
-| purchaser | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 
 ## Association
 
