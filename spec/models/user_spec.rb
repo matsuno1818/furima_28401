@@ -53,7 +53,7 @@ RSpec.describe User, type: :model do
     it 'family_nameが全角日本語でないと保存できないこと' do
       @user.family_name = 'abeﾞ'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Family name is invalid')
+      expect(@user.errors.full_messages).to include("Family name is invalid. Family name Full-width characters")
     end
     it 'first_nameが空だと保存できないこと' do
       @user.first_name = nil
@@ -63,7 +63,7 @@ RSpec.describe User, type: :model do
     it 'first_nameが全角日本語でないと保存できないこと' do
       @user.first_name = 'ﾀﾛｳ'
       @user.valid?
-      expect(@user.errors.full_messages).to include('First name is invalid')
+      expect(@user.errors.full_messages).to include("First name Full-width characters")
     end
     it 'familyname_readingが空だと保存できないこと' do
       @user.familyname_reading = nil
@@ -73,7 +73,7 @@ RSpec.describe User, type: :model do
     it 'familyname_readingが全角カタカナでないと保存できないこと' do
       @user.familyname_reading = 'あべ'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Familyname reading is invalid')
+      expect(@user.errors.full_messages).to include('Familyname reading  Full-width katakana characters')
     end
     it 'firstname_readingが空だと保存できないこと' do
       @user.firstname_reading = nil
@@ -83,7 +83,7 @@ RSpec.describe User, type: :model do
     it 'firstname_readingが全角カタカナでないと保存できないこと' do
       @user.firstname_reading = '太郎'
       @user.valid?
-      expect(@user.errors.full_messages).to include('Firstname reading is invalid')
+      expect(@user.errors.full_messages).to include("Firstname reading  Full-width katakana characters")
     end
     it 'birthdayを選択していないと保存できないこと' do
       @user.birthday = nil
