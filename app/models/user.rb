@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  
+  has_many :items
 
     @nickname = /\A[ぁ-んァ-ン一-龥a-z0-9]+\z/i 
     @email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
