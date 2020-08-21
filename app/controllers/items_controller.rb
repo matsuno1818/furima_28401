@@ -34,7 +34,9 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
       redirect_to root_path
-     end
+    else
+      render 'edit'
+    end
   end
   
   def destroy
