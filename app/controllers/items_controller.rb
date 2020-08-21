@@ -21,12 +21,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @item = Item.find(item_params)
+     @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+  
+  def destroy
   end
 
   private
   def item_params
-    params.require(:item).permit(:image, :name, :text, :genre, :state, :delivery, :prefecture, :shipment, :price ).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :text, :genre_id, :state_id, :delivery_id, :prefecture_id, :shipment_id, :price ).merge(user_id: current_user.id)
   end
 
   def move_to_index
