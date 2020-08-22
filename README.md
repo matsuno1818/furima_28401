@@ -40,7 +40,7 @@
 - has_one :purchase
 - has_one :address
 
-## addresses テーブル
+## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
