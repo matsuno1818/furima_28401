@@ -25,11 +25,11 @@
 | image        | string     | null: false                    |
 | name         | string     | null: false                    |
 | text         | text       | null: false                    |
-| genre        | integer    | null: false                    |
-| state        | integer    | null: false                    |
-| delivery     | integer    | null: false                    |
-| prefecture   | integer    | null: false                    |
-| shipment     | integer    | null: false                    |
+| genre_id     | integer    | null: false                    |
+| state_id     | integer    | null: false                    |
+| delivery_id  | integer    | null: false                    |
+| prefecture_id| integer    | null: false                    |
+| shipment_id  | integer    | null: false                    |
 | price        | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
@@ -45,7 +45,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture    | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
