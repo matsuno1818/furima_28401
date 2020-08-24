@@ -40,7 +40,7 @@
 - has_one :purchase
 - has_one :address
 
-## orders テーブル
+## addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -69,3 +69,11 @@
 - belongs_to :user
 - has_one :address
 - belongs_to :item
+
+## orders テーブル
+
+| Colum     | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| item      | references | null: false, foreign_key: true |
+
+## Association
