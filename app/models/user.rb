@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :items
+  has_one :order
 
     @nickname = /\A[ぁ-んァ-ン一-龥a-z0-9]+\z/i 
     @email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
