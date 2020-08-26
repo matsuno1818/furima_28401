@@ -1,12 +1,9 @@
 class OrdersController < ApplicationController
 
   def index
-    # @item = Item.find(item_params)
-    @item = Item.find(1)
-    # @item = Item.find(params[:item_id])
+    @item = Item.find(params[:item_id])
     @order = ItemOrder.new
-
-    # items/:item_id/orders
+    
   end
 
   def new
@@ -27,7 +24,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:item_order).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :token).merge(item_id: params[:item_id])
+    params.require(:item_order).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :token).merge(item_id: params[:item_id], user_id: current_user.id)
   end
 
   def pay_item
