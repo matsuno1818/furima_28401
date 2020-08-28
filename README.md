@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :purchases
+- has_one :order
 - has_many :items
 
 ## items テーブル
@@ -25,11 +25,11 @@
 | image        | string     | null: false                    |
 | name         | string     | null: false                    |
 | text         | text       | null: false                    |
-| genre        | integer    | null: false                    |
-| state        | integer    | null: false                    |
-| delivery     | integer    | null: false                    |
-| prefecture   | integer    | null: false                    |
-| shipment     | integer    | null: false                    |
+| genre_id     | integer    | null: false                    |
+| state_id     | integer    | null: false                    |
+| delivery_id  | integer    | null: false                    |
+| prefecture_id| integer    | null: false                    |
+| shipment_id  | integer    | null: false                    |
 | price        | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
@@ -37,15 +37,14 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchase
-- has_one :address
+- has_one :order
 
 ## addresses テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture    | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
@@ -55,9 +54,9 @@
 ### Association
 
 - belongs_to :item
-- belongs_to :purchas
+- belongs_to :order
 
-## purchases テーブル
+## orders テーブル
 
 | Colum     | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
