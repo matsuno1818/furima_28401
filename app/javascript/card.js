@@ -36,7 +36,5 @@ const pay = () => {
   });
 };
 
-const form = document.getElementById("charge-form");
-if(form != null) {
+
   window.addEventListener("load", pay);
-}
