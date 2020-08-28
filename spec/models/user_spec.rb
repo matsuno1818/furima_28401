@@ -14,18 +14,25 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
+    it 'nicknameが重複していると保存できないこと' do
+      @user.save
+      another_user = FactoryBot.build(:user, nickname: @user.nickname)
+      another_user.valid?
+      expect(another_user.errors.full_messages).to include("Nickname has already been taken")
+    end
     it 'emailが空だと保存できないこと' do
       @user.email = nil
       @user.valid?
       expect(@user.errors.full_messages).to include("Email can't be blank")
     end
+    it 'emailが重複していると保存できないこと' do
+      @user.save
+      another_user = FactoryBot.build(:user, email: @user.email)
+      another_user.valid?
+     expect(another_user.errors.full_messages).to include("Email has already been taken")
+    end
     it '@がないと保存できないこと' do
       @user.email = 'aomori12'
-      @user.valid?
-      expect(@user.errors.full_messages).to include('Email is invalid')
-    end
-    it 'emailが半角英数字でないと保存できないこと' do
-      @user.email = 'ああ@イイ'
       @user.valid?
       expect(@user.errors.full_messages).to include('Email is invalid')
     end
@@ -53,7 +60,7 @@ RSpec.describe User, type: :model do
     it 'family_nameが全角日本語でないと保存できないこと' do
       @user.family_name = 'abeﾞ'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Family name is invalid. Family name Full-width characters")
+      expect(@user.errors.full_messages).to include("Family name Full-width characters")
     end
     it 'first_nameが空だと保存できないこと' do
       @user.first_name = nil
@@ -61,7 +68,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name can't be blank")
     end
     it 'first_nameが全角日本語でないと保存できないこと' do
-      @user.first_name = 'ﾀﾛｳ'
+      @user.first_name = 'tarou'
       @user.valid?
       expect(@user.errors.full_messages).to include("First name Full-width characters")
     end
