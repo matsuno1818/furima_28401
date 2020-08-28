@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
 
-before_action :item_params, only: [:create]
+before_action :item_params, only: [:index, :create]
 
 
   def index
-    @item = Item.find(params[:item_id])
     @order = ItemOrder.new
     if current_user.id == @item.user_id
       redirect_to root_path
