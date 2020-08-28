@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
 
 before_action :item_params, only: [:index, :create]
 
-
   def index
     @order = ItemOrder.new
     if current_user.id == @item.user_id
