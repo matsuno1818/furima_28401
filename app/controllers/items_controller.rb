@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # skip_before_action :authenticate_user!, only:[:index, :show]
+  
   before_action :move_to_index,except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
