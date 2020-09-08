@@ -16,42 +16,42 @@ RSpec.describe ItemOrder, type: :model do
     it 'カード情報が空では登録できないこと' do
       @item_order.token = nil
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Token can't be blank")
+      expect(@item_order.errors.full_messages).to include("Tokenを入力してください")
     end
     it '郵便番号が空では登録できないこと' do
       @item_order.postal_code = nil
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Postal code can't be blank")
+      expect(@item_order.errors.full_messages).to include("郵便番号を入力してください")
     end
     it '郵便番号にはハイフン(-)がないと登録できないこと' do
       @item_order.postal_code = '1234567'
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+      expect(@item_order.errors.full_messages).to include("郵便番号にハイフンを入れて入力してくださ")
     end
     it '都道府県が空では登録できないこと' do
       @item_order.prefecture_id = nil
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Prefecture can't be blank")
+      expect(@item_order.errors.full_messages).to include("都道府県を入力してください")
     end
     it '市区町村が空では登録できなこと' do
       @item_order.city = nil
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("City can't be blank")
+      expect(@item_order.errors.full_messages).to include("市区町村を入力してください")
     end
     it '番地が空では登録できないこと' do
       @item_order.house_number = nil
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("House number can't be blank")
+      expect(@item_order.errors.full_messages).to include("番地を入力してください")
     end
     it '電話番号が空では登録できないこと' do
       @item_order.phone_number = nil
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Phone number can't be blank")
+      expect(@item_order.errors.full_messages).to include("電話番号を入力してください")
     end
     it '電話番号は11文字以内でないと保存できないこと' do
       @item_order.phone_number = "080123456789"
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Phone number Phone_number Out of setting range")
+      expect(@item_order.errors.full_messages).to include("電話番号は11桁で入力してください")
     end
   end
 end

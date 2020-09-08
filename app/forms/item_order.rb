@@ -8,8 +8,8 @@ class ItemOrder
 
   with_options presence: true do
     validates :prefecture_id, :city, :house_number, :token
-    validates :postal_code, format: {with: Include_hyphen, message: "is invalid. Include hyphen(-)"}
-    validates :phone_number, format: {with: Phone_number, message: "Phone_number Out of setting range"}
+    validates :postal_code, format: {with: Include_hyphen, message: "にハイフンを入れて入力してくださ"}
+    validates :phone_number, format: {with: Phone_number, message: "は11桁で入力してください"}
   end
   
   def save
