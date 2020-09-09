@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipment
-  has_many_attached :images
+  has_one_attached :image
 
   belongs_to :user
   has_one :order
