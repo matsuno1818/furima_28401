@@ -14,7 +14,6 @@ const pay = () => {
       exp_month: formData.get("item_order[exp_month]"),
       exp_year: `20${formData.get("item_order[exp_year]")}`,
     };
-  
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
         const token = response.id;
@@ -33,8 +32,7 @@ const pay = () => {
         alert(response.error.message);
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
-
-      }
+       }
     });
   });
 };
