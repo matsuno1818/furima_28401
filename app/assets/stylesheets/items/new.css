@@ -80,12 +80,6 @@
   padding: 2vh 0;
 }
 
-/* img {
-  height: 70px;
-  width: 70px;
-  object-fit: contain;
-} */
-
 .click-upload {
   margin: 15px 0;
   min-width: 250px;
@@ -234,3 +228,8 @@
   font-size: 13px;
 }
 
+img {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+}
